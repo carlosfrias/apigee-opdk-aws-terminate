@@ -1,7 +1,5 @@
 ---
 # tasks file for aws-terminate
-- setup:
-
 - name: Load EC2 instance ids
   ec2_facts:
 
