@@ -8,8 +8,8 @@
   ec2:
     state: absent
     instance_ids: '{{ ansible_ec2_instance_id }}'
-    aws_access_key: '{{ aws_access_key }}'
-    aws_secret_key: '{{ aws_secret_key }}'
+    aws_access_key: "{{ aws_access_key|default(lookup('env', 'AWS_ACCESS_KEY_ID')) }}"
+    aws_secret_key: "{{ aws_secret_key|default(lookup('env', 'AWS_SECRET_ACCESS_KEY')) }}"
     aws_region: '{{ aws_region }}'
 
 - name: Terminate AMI instances status report
